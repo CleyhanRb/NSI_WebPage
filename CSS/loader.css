@@ -1,0 +1,44 @@
+.loader {
+  display: flex;
+  --height-of-loader: 4px;
+  --loader-color: #ffffff;
+  width: 130px;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.2);
+  position: relative;
+  top: 0%;
+}
+
+.loader-wrapper{    
+    display: flex;
+    
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex-flow: column;
+
+
+    justify-content: center;
+    align-items: center;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.loader.active::before{
+  animation: loading 1s ease-in-out both;
+}
+
+@keyframes loading {
+  100% {
+    width: 100%;
+  }
+}
+

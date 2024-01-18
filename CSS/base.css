@@ -1,0 +1,48 @@
+:root{
+    --main-color: #9d3939;
+    --bottomshadow-color: #b54242;
+    --uppershadow-color: #853030;
+    --main-font-color: var(--dark-theme-font-color);
+    --disabled-text-color: #975c5c;
+
+    --light-theme-font-color: black;
+    --dark-theme-font-color: white;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    color: var(--main-font-color);
+
+    font-weight: 100;
+    font-family: BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans;
+    background-color: var(--main-color);
+
+}
+
+body{
+    
+    width: 100%;
+    height: 100%;
+    animation: appears .5s linear;
+}
+
+*{
+    user-select: none;
+}
+
+body.transition-link{
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+
+@keyframes appears {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
