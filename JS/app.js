@@ -14,8 +14,7 @@ Array.prototype.forEach.call(cards, function(card){
         card.classList.remove("down")
     })
 
-    card.addEventListener("click", async function(){
-
+    card.addEventListener("click", async function(e){
         if (card.hasAttribute("link")){
             disableButtons()
             loader = document.querySelector(".loader")
@@ -23,10 +22,11 @@ Array.prototype.forEach.call(cards, function(card){
             await sleep(1000)
             document.body.classList.add("transition-link")
             await sleep(1000)
-            window.location.href = transformLink(card.getAttribute("link"))
+            window.location = transformLink(card.getAttribute("link"))
         }
+        
         if (card.hasAttribute("speciallink")){
-            window.location.href = card.getAttribute("speciallink")
+            window.location = card.getAttribute("speciallink")
         }
         // enableButtons()
         // loader.classList.remove("active")
