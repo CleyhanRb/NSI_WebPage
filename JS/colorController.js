@@ -1,4 +1,3 @@
-
 var picker = document.querySelector("input#picker")
 var r = document.querySelector(':root');
 
@@ -26,9 +25,6 @@ else
     }
 }
 
-
-
-
 if (search.has("upcolor")){
     r.style.setProperty("--uppershadow-color", "#" + search.get("upcolor").toString())
 }
@@ -36,13 +32,18 @@ if (search.has("downcolor")){
     r.style.setProperty("--bottomshadow-color", "#" + search.get("downcolor").toString())
 }
 if (search.has("disabledTextColor")){
-    r.style.setProperty("--disabled-text-color", "#" + search.get("disabledTextColor").toString())
+  r.style.setProperty("--disabled-text-color", "#" + search.get("disabledTextColor").toString())
+}
+if (search.has("darktheme")){
+  if (search.get("darktheme") == "true") {
+    r.style.setProperty("--main-font-color", "var(--dark-theme-font-color)")
+  }else{
+    r.style.setProperty("--main-font-color", "var(--light-theme-font-color)")
+  }
 }
 
 
-
-
-// Functions
+// Fonctions avec le color picker
 
 function pickColorChange(event){
     differenceValue = "0f0f0f"
@@ -71,6 +72,8 @@ function setupPicker(){
     }
 }
 
+// Fonction pour avoir le lien avec paramètres
+
 function transformLink(link){
   if (r.style.getPropertyValue("--main-color") == ''){
     pickColorChange()
@@ -78,8 +81,19 @@ function transformLink(link){
     return link + "?color=" + r.style.getPropertyValue("--main-color").substring(1) + 
     "&upcolor=" + r.style.getPropertyValue("--uppershadow-color").substring(1) + 
     "&downcolor=" + r.style.getPropertyValue("--bottomshadow-color").substring(1) +
-    "&disabledTextColor=" + r.style.getPropertyValue("--disabled-text-color").substring(1)
+    "&disabledTextColor=" + r.style.getPropertyValue("--disabled-text-color").substring(1) + 
+    "&darktheme=" + isDarkTheme()
 }
+
+function isDarkTheme(){
+  if (r.style.getPropertyValue("--main-font-color") == "var(--dark-theme-font-color)" || r.style.getPropertyValue("--main-font-color") == "") {
+    return true
+  }else{
+    return false
+  }
+}
+
+// Fonctions de calcul avec des couleurs
 
 function addHexColor(c1, c2) {
     const octetsRegex = /^([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i

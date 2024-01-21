@@ -5,7 +5,7 @@
     --main-font-color: var(--dark-theme-font-color);
     --disabled-text-color: #975c5c;
 
-    --light-theme-font-color: black;
+    --light-theme-font-color: rgb(48, 50, 75);
     --dark-theme-font-color: white;
 }
 
@@ -31,6 +31,7 @@ body{
 
 *{
     user-select: none;
+    color: var(--main-font-color);
 }
 
 body.transition-link{

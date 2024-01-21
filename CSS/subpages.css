@@ -104,3 +104,34 @@
     flex-direction: row;
     margin-bottom: 3vh;
 }
+
+
+/* Tableau */
+
+table, th, td{
+    border: 1px solid white;
+    
+    word-wrap: break-word;
+}
+
+table {
+    width: 80%;
+    margin-bottom: 5vh;
+    
+    --border: 1px solid white;
+    border-radius: 30px;
+
+    /* Don't change these properties */
+    border-spacing: 0;
+    border-collapse: separate;
+    border: var(--border);
+    overflow: hidden;
+
+    text-align: center;
+}
+
+td img{
+    width: 15vh;
+    border-radius: 10px;
+    margin: 5px;
+}

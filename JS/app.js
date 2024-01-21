@@ -1,8 +1,12 @@
+// Mise en place du color picker
+
 if(picker == null){
     var picker = document.querySelector("input#picker")
     setupPicker()
     picker.addEventListener("change", () => pickColorChange())
 }
+
+// Events mousedown, mouse up et click pour chaque Card
 
 var cards = document.querySelectorAll("li.card")
 
@@ -36,6 +40,7 @@ Array.prototype.forEach.call(cards, function(card){
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
+// Enable, Disable Buttons
 
 function disableButtons(){
     Array.prototype.forEach.call(cards, function(card){
